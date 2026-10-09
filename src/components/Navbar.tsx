@@ -1,20 +1,32 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { SeasonalThemeId } from '../types/bouquet';
+import { SEASONAL_THEMES } from '../data/seasonalThemes';
 
 interface NavbarProps {
   currentView: 'home' | 'arrange' | 'note' | 'unwrap' | 'about';
   onNavigate: (view: 'home' | 'arrange' | 'note' | 'unwrap' | 'about') => void;
   onOpenAbout?: () => void;
+  season?: SeasonalThemeId;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenAbout }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenAbout, season = 'summer' }) => {
   if (currentView === 'unwrap') {
     return null; // Immersive recipient experience
   }
 
+  const currentTheme = SEASONAL_THEMES[season] || SEASONAL_THEMES.summer;
+  // Blend smoothly with the canvas background: 88% opacity of current theme bgHex with backdrop-blur
+  const headerStyle = {
+    backgroundColor: `${currentTheme.bgHex}E0`
+  };
+
   if (currentView === 'about') {
     return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5">
+      <header
+        style={headerStyle}
+        className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5 transition-colors duration-700"
+      >
         <div className="h-20 w-full max-w-7xl mx-auto px-5 md:px-12 flex items-center justify-between">
           <button
             onClick={() => onNavigate('home')}
@@ -44,7 +56,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenA
 
   if (currentView === 'note') {
     return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5">
+      <header
+        style={headerStyle}
+        className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5 transition-colors duration-700"
+      >
         <div className="h-20 w-full max-w-7xl mx-auto px-5 md:px-12 flex items-center justify-between">
           <button
             onClick={() => onNavigate('arrange')}
@@ -75,7 +90,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenA
 
   if (currentView === 'arrange') {
     return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5">
+      <header
+        style={headerStyle}
+        className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5 transition-colors duration-700"
+      >
         <div className="h-20 max-w-7xl mx-auto px-5 md:px-12 flex items-center justify-between">
           <button
             onClick={() => onNavigate('home')}
@@ -106,7 +124,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenA
 
   // Home View
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5">
+    <header
+      style={headerStyle}
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl shadow-[0_1px_8px_rgba(2,33,60,0.03)] border-b border-[#02213c]/5 transition-colors duration-700"
+    >
       <div className="h-20 max-w-7xl mx-auto px-5 md:px-12 flex items-center justify-between">
         <button
           onClick={() => onNavigate('home')}

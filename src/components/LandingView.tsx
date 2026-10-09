@@ -29,8 +29,9 @@ export const LandingView: React.FC<LandingViewProps> = ({ onStart, sampleStems }
 
           {/* Pure Poetic Subtitle */}
           <p className="font-sans text-base sm:text-lg text-[#43474d] max-w-lg mb-8 font-light leading-relaxed">
-            Pick your flowers, arrange them by hand, and write a heartfelt note. Send a private link for them to unwrap in their browser.
+            Pick flowers for your better half,family,parents,friends and loved ones, and write a heartfelt note. Send a private link for them to unwrap.
           </p>
+          <p className="font-sans text-base sm:text-lg text-[#43474d] max-w-lg mb-8 font-light leading-relaxed">~from someone who identify as a serial gifter</p>
 
           {/* Primary Action Row */}
           <div className="flex flex-col sm:flex-row items-center gap-4">

@@ -244,6 +244,7 @@ export default function App() {
         currentView={currentView}
         onNavigate={setCurrentView}
         onOpenAbout={() => setCurrentView('about')}
+        season={season}
       />
 
       {/* Main Screen Views */}
