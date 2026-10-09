@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  --color-surface: #fffadf;
+  --color-surface-dim: #e2dca5;
+  --color-surface-bright: #fffadf;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fcf6bd;
+  --color-surface-container: #f6f0b7;
+  --color-surface-container-high: #f0eab2;
+  --color-surface-container-highest: #eae5ad;
+
+  --color-primary: #000816;
+  --color-primary-container: #02213c;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #7089a9;
+
+  --color-secondary: #6f5481;
+  --color-secondary-container: #eccbff;
+  --color-on-secondary-container: #6e5380;
+  --color-secondary-fixed: #f3daff;
+  --color-secondary-fixed-dim: #dbbbee;
+
+  --color-tertiary: #000a04;
+  --color-tertiary-container: #042518;
+  --color-tertiary-fixed: #c7ebd5;
+  --color-tertiary-fixed-dim: #accfba;
+
+  --color-primary-fixed: #d1e4ff;
+  --color-primary-fixed-dim: #afc9eb;
+
+  --color-on-surface: #1e1c00;
+  --color-on-surface-variant: #43474d;
+  --color-outline: #74777e;
+  --color-outline-variant: #c3c6ce;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffadf;
+    color: #1e1c00;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-headline {
+  font-family: var(--font-serif);
+}
+.font-body {
+  font-family: var(--font-sans);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
